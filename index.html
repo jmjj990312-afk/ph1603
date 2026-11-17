@@ -263,6 +263,34 @@ footer button{background:none;border:0;color:var(--gold2);text-decoration:underl
 .pfoot{display:flex;justify-content:space-between;margin-top:12px;position:relative;z-index:1}
 .pfoot button{background:none;border:0;color:#a89d8d;font-size:13px;cursor:pointer;font-family:inherit;padding:6px 2px}
 
+/* 방문예약 폼 */
+.rsv{background:var(--bk2);color:var(--ivory)}
+.rsv h2{color:var(--ivory)}
+.rsv h2 em{color:var(--gold2)}
+.rsv .lead{color:#b6ab9b}
+.rcard{background:var(--ivory);color:var(--ink);max-width:560px;margin:36px auto 0;padding:28px 20px;border:1px solid var(--gold);box-shadow:0 24px 60px rgba(0,0,0,.35);text-align:left}
+.contact .rcard{margin-top:22px}
+.field{margin-bottom:14px}
+.field label,.field .lb{display:block;font-weight:500;font-size:14px;margin-bottom:6px;color:var(--ink)}
+.field input[type=text],.field input[type=tel],.field input[type=date],.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid #d8ccb8;background:#fff;font-size:16px;font-family:inherit;color:var(--ink);border-radius:0}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold)}
+.field textarea{min-height:76px;resize:vertical}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips label{margin:0;font-weight:400;position:relative}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:8px 13px;border:1px solid #d8ccb8;background:#fff;font-size:14px;cursor:pointer}
+.chips input:checked+span{background:var(--bk);border-color:var(--bk);color:var(--gold2)}
+.chips input:focus-visible+span{outline:2px solid var(--gold)}
+.req{color:#a8323a;font-style:normal;font-size:12px;font-weight:700;margin-left:4px}
+.agree{display:flex;align-items:flex-start;gap:8px;font-size:14px;margin:6px 0 4px;color:var(--ink)}
+.agree input{width:18px;height:18px;margin-top:3px;accent-color:var(--bk);flex:none}
+.agree button{background:none;border:0;color:var(--gold3);text-decoration:underline;font-size:13px;cursor:pointer;font-family:inherit;padding:0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.msg{min-height:22px;font-size:14px;color:#a8323a;margin:8px 0 4px;text-align:center}
+.rcard .btn{width:100%}
+@media (max-width:360px){.row2{grid-template-columns:minmax(0,1fr)}}
+
 /* popup */
 .pop{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:16px}
 .pop.on{display:flex}
@@ -329,7 +357,7 @@ footer button{background:none;border:0;color:var(--gold2);text-decoration:underl
   <div class="wrap hd">
     <a class="logo" href="#top" aria-label="PH1603 서초 맨 위로"><b>PH1603</b><small>SEOCHO</small></a>
     <nav class="hnav" aria-label="주요 메뉴">
-      <a href="#concept">컨셉</a><a href="#overview">사업개요</a><a href="#film">브랜드필름</a><a href="#location">입지</a><a href="#gallery">갤러리·커뮤니티</a><a href="#interior">인테리어</a><a href="#unit">평면</a><a href="#contact">예약문의</a>
+      <a href="#concept">컨셉</a><a href="#overview">사업개요</a><a href="#film">브랜드필름</a><a href="#location">입지</a><a href="#gallery">갤러리·커뮤니티</a><a href="#interior">인테리어</a><a href="#unit">평면</a><a href="#reserve">방문예약</a><a href="#contact">문의</a>
     </nav>
     <div class="hbtns">
       <a class="hb kk kakao-link" href="https://open.kakao.com/o/sjeUHrXi" target="_blank" rel="noopener" aria-label="카카오톡 예약문의"><svg class="i" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.5 2 10.8c0 2.8 1.9 5.2 4.7 6.6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.5 0 10-3.5 10-7.9S17.5 3 12 3z"/></svg><span>카카오톡 예약</span></a>
@@ -422,6 +450,15 @@ footer button{background:none;border:0;color:var(--gold2);text-decoration:underl
         <a class="type" href="#unit" data-u="u5"><b>127P</b><span>1세대</span><em>평면 보기</em></a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="rsv" id="reserve">
+  <div class="wrap center">
+    <p class="en rv">Reservation</p>
+    <h2 class="rv">방문예약 <em>남기기</em></h2>
+    <p class="lead rv">성함과 연락처를 남겨 주시면 담당 팀장이 확인 후 바로 연락드립니다.<br>실물 세대 관람은 예약제로 안내드립니다.</p>
+    <form class="rcard rform" data-k="1" novalidate></form>
   </div>
 </section>
 
@@ -644,10 +681,11 @@ footer button{background:none;border:0;color:var(--gold2);text-decoration:underl
         <a class="btn gold" href="tel:18440974"><svg class="i" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>전화 상담</a>
       </div>
       <div class="steps">
-        <div><i>01</i><p>카카오톡·전화로 예약</p></div>
+        <div><i>01</i><p>예약 남기기·카톡·전화</p></div>
         <div><i>02</i><p>방문 일정 확정 안내</p></div>
         <div><i>03</i><p>현장 방문·상담</p></div>
       </div>
+      <form class="rcard rform" data-k="2" novalidate></form>
       <p class="addr">현장 위치: 서울 서초구 서초동 1603-56 일원<a href="https://map.naver.com/p/search/%EC%84%9C%EC%B4%88%EB%8F%99%201603-56" target="_blank" rel="noopener">네이버 지도</a></p>
     </div>
   </div>
@@ -703,16 +741,27 @@ footer button{background:none;border:0;color:var(--gold2);text-decoration:underl
   <button type="button" id="kkfx" style="background:none;color:var(--gold2);text-decoration:underline;margin-top:4px">닫기</button>
 </div>
 
+<div class="pop" id="done" role="dialog" aria-modal="true" aria-labelledby="doneT">
+  <div class="in">
+    <h3 id="doneT">예약이 접수되었습니다</h3>
+    <p>담당 장민철 팀장이 확인 후 곧 연락드리겠습니다.<br>급하신 경우 <b>1844-0974</b>로 전화 주세요.</p>
+    <button type="button" class="ok" data-close="done">확인</button>
+  </div>
+</div>
+
 <div class="pop" id="priv" role="dialog" aria-modal="true" aria-labelledby="privT">
   <div class="in">
     <h3 id="privT">개인정보처리방침</h3>
     <ul>
-      <li><b>수집 항목</b>: 본 홈페이지는 이름·연락처 등 개인정보를 직접 수집하지 않습니다. 상담은 전화 또는 카카오톡 오픈채팅으로 진행됩니다.</li>
-      <li><b>상담 시 정보</b>: 상담 과정에서 알려주신 연락처는 방문예약 확인 및 분양 안내 목적으로만 사용하며, 상담 완료 후 6개월 이내 파기합니다. (요청 시 즉시 파기)</li>
+      <li><b>수집 항목</b>: 이름, 연락처, 방문 희망일·시간, 관심평형, 문의내용 (방문예약 남기기 이용 시)</li>
+      <li><b>수집 목적</b>: 방문예약 확인 및 분양 상담 안내</li>
+      <li><b>보유 기간</b>: 상담 완료 후 6개월 이내 파기 (요청 시 즉시 파기)</li>
+      <li><b>처리 방법</b>: 남기신 내용은 운영자 메일로 전달되고 운영자의 구글 시트에 보관됩니다.</li>
       <li><b>제3자 제공</b>: 제공하지 않습니다.</li>
       <li><b>운영자</b>: 장민철 팀장 (010-4920-8250)</li>
-      <li><b>광고 측정</b>: 광고 효과 확인을 위해 메타(페이스북·인스타그램) 픽셀을 사용합니다. 방문 및 상담 버튼 클릭 여부만 전달되며 이름·연락처는 전달하지 않습니다.</li>
+      <li><b>광고 측정</b>: 광고 효과 확인을 위해 메타(페이스북·인스타그램) 픽셀을 사용합니다. 방문 및 상담 신청 여부만 전달되며 이름·연락처는 전달하지 않습니다.</li>
     </ul>
+    <p>동의를 거부하실 수 있으며, 이 경우 예약 남기기가 제한됩니다. 전화(1844-0974)·카카오톡 상담은 동의 없이 이용 가능합니다.</p>
     <button type="button" class="ok" data-close="priv">닫기</button>
   </div>
 </div>
@@ -734,6 +783,54 @@ document.addEventListener('click',function(e){
   if(!e.target.closest)return;
   if(e.target.closest('a[href^="tel:"]'))px('Contact',{content_name:SITE_NAME});
   if(e.target.closest('.kakao-link'))px('Lead',{content_name:SITE_NAME,content_category:'kakao_openchat'});
+});
+
+/* 방문예약 폼 → 이메일 알림 (휴대폰·PC 모두, Apps Script) */
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyuV4LsZVup69m6mR4QMxBAV_T1qjbUCP0MUCG7bSBibjRp1jSq9199ZeLFcqWtzsgg3A/exec';  // 받는 메일: jnjj990312@naver.com
+var CALL = '1844-0974';
+var TYPES = ['59A','59B','59GA','59PA·PB','59C','127P'];
+function formHTML(k){
+  var chips=TYPES.map(function(t){return '<label><input type="checkbox" name="type" value="'+t+'"><span>'+t+'</span></label>';}).join('');
+  return ''+
+  '<div class="field"><label for="n'+k+'">이름<em class="req">* 필수</em></label><input type="text" id="n'+k+'" name="uname" autocomplete="name" placeholder="성함"></div>'+
+  '<div class="field"><label for="t'+k+'">연락처<em class="req">* 필수</em></label><input type="tel" id="t'+k+'" name="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000"></div>'+
+  '<div class="row2">'+
+    '<div class="field"><label for="d'+k+'">방문 희망일</label><input type="date" id="d'+k+'" name="vdate"></div>'+
+    '<div class="field"><label for="h'+k+'">시간</label><select id="h'+k+'" name="vtime"><option value="">선택</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option></select></div>'+
+  '</div>'+
+  '<div class="field"><span class="lb">관심평형 (복수 선택)</span><div class="chips">'+chips+'</div></div>'+
+  '<div class="field"><label for="q'+k+'">문의내용 (선택)</label><textarea id="q'+k+'" name="memo" placeholder="궁금하신 내용을 남겨주세요"></textarea></div>'+
+  '<div class="hp" aria-hidden="true"><label>홈페이지<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>'+
+  '<div class="agree"><input type="checkbox" id="a'+k+'" name="agree"><label for="a'+k+'">개인정보 수집·이용에 동의합니다. (필수)</label> <button type="button" class="openPriv">보기</button></div>'+
+  '<p class="msg" role="alert"></p>'+
+  '<button type="submit" class="btn gold sbtn">방문예약 남기기</button>';
+}
+document.querySelectorAll('.rform').forEach(function(f){
+  var k=f.getAttribute('data-k');
+  f.innerHTML=formHTML(k);
+  var el=f.elements, m=f.querySelector('.msg');
+  el.tel.addEventListener('input',function(){
+    var v=el.tel.value.replace(/[^0-9]/g,'').slice(0,11);
+    el.tel.value=v.length<4?v:v.length<8?v.slice(0,3)+'-'+v.slice(3):v.slice(0,3)+'-'+v.slice(3,v.length-4)+'-'+v.slice(-4);
+  });
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(el.website.value){return;}
+    var name=el.uname.value.trim(), tel=el.tel.value.trim(), date=el.vdate.value, time=el.vtime.value, memo=el.memo.value.trim();
+    var types=Array.prototype.filter.call(f.querySelectorAll('input[name=type]'),function(x){return x.checked;}).map(function(x){return x.value;}).join(', ');
+    m.style.color='';
+    if(!name){m.textContent='이름을 입력해 주세요.';el.uname.focus();return;}
+    if(tel.replace(/[^0-9]/g,'').length<10){m.textContent='연락처를 정확히 입력해 주세요.';el.tel.focus();return;}
+    if(!el.agree.checked){m.textContent='개인정보 수집·이용에 동의해 주세요.';return;}
+    var btn=f.querySelector('.sbtn');btn.disabled=true;m.style.color='#5a5249';m.textContent='접수 중입니다...';
+    var dev=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)?'휴대폰':'PC';
+    px('Lead',{content_name:SITE_NAME,content_category:'form_'+(dev==='PC'?'pc':'mobile')});
+    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({name:name,tel:tel,date:date,time:time,type:types,msg:memo,site:SITE_NAME+' 홈페이지 ('+dev+')'})})
+      .then(function(){m.textContent='';m.style.color='';f.reset();openPop('done');})
+      .catch(function(){m.style.color='';m.innerHTML='잠시 접수가 되지 않습니다. 대표전화 <b>'+CALL+'</b>로 전화 주세요.';})
+      .finally(function(){btn.disabled=false;});
+  });
 });
 
 /* 카카오톡 오픈채팅: 휴대폰은 앱을 바로 열어 홈페이지 창을 그대로 남김 (뒤로 와도 홈페이지 유지) */
