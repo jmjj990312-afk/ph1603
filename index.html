@@ -228,9 +228,11 @@ footer a{color:var(--gold2)}
 footer button{background:none;border:0;color:var(--gold2);text-decoration:underline;font-size:12.5px;cursor:pointer;font-family:inherit;padding:0}
 
 /* fixed bar */
-.fix{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bk);box-shadow:0 -6px 24px rgba(0,0,0,.35)}
-.fix a{display:flex;align-items:center;justify-content:center;gap:8px;height:64px;font-weight:700;font-size:16px;text-align:left;line-height:1.25}
-.fix a small{display:block;font-size:11px;font-weight:400;opacity:.8}
+.fix{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bk);box-shadow:0 -6px 24px rgba(0,0,0,.35)}
+.fix a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:64px;font-weight:700;font-size:15px;text-align:center;line-height:1.2;padding:0 4px}
+.fix a span{display:block}
+.fix a small{display:block;font-size:10.5px;font-weight:400;opacity:.8}
+.fix .f0{background:var(--bk2);color:var(--gold2);border-right:1px solid var(--line)}
 .fix .f1{background:var(--kakao);color:#191600}
 .fix .f2{background:var(--goldg);color:var(--bk)}
 
@@ -315,7 +317,8 @@ footer button{background:none;border:0;color:var(--gold2);text-decoration:underl
   .locgrid{grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:56px;align-items:start}
   .unit{grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px}
   .fix{left:auto;right:28px;bottom:28px;width:240px;grid-template-columns:1fr;box-shadow:0 18px 50px rgba(0,0,0,.35)}
-  .fix a{height:60px;justify-content:flex-start;padding:0 22px}
+  .fix a{height:60px;flex-direction:row;justify-content:flex-start;gap:10px;padding:0 22px;text-align:left;font-size:16px}
+  .fix .f0{border-right:0;border-bottom:1px solid var(--line)}
   .pdesc{grid-template-columns:minmax(0,4fr) minmax(0,7fr);align-items:end;gap:40px}
 }
 @media (max-width:899px){
@@ -342,7 +345,8 @@ footer button{background:none;border:0;color:var(--gold2);text-decoration:underl
   .hb.call svg{display:none}
   .types{grid-template-columns:repeat(2,minmax(0,1fr))}
   .g2,.g3{grid-template-columns:minmax(0,1fr)}
-  .fix a{font-size:14px;gap:5px}
+  .fix a{font-size:13.5px}
+  .fix a small{font-size:10px}
 }
 @media (prefers-reduced-motion:reduce){
   .js .rv{opacity:1;transform:none;transition:none}
@@ -708,8 +712,9 @@ footer button{background:none;border:0;color:var(--gold2);text-decoration:underl
 </footer>
 
 <div class="fix">
-  <a class="f1 kakao-link" href="https://open.kakao.com/o/sjeUHrXi" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.5 2 10.8c0 2.8 1.9 5.2 4.7 6.6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.5 0 10-3.5 10-7.9S17.5 3 12 3z"/></svg><span>카톡 예약문의<small>오픈채팅 바로 입장</small></span></a>
-  <a class="f2" href="tel:18440974"><svg class="i" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span>1844-0974<small>터치하면 바로 연결</small></span></a>
+  <a class="f0" href="#reserve"><svg class="i" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg><span>방문예약<small>모델하우스</small></span></a>
+  <a class="f1 kakao-link" href="https://open.kakao.com/o/sjeUHrXi" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.5 2 10.8c0 2.8 1.9 5.2 4.7 6.6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.5 0 10-3.5 10-7.9S17.5 3 12 3z"/></svg><span>카톡예약<small>오픈채팅</small></span></a>
+  <a class="f2" href="tel:18440974"><svg class="i" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span>1844-0974<small>바로 전화</small></span></a>
 </div>
 
 <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promoT" hidden>
